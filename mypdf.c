@@ -223,12 +223,12 @@ void  mypdf_path_fill(struct pdf_file *pdf) {
    page_add_data(pdf->last_page, "f\n", 2);
 }
 /*******************************************************************************/
-void  mypdf_add_text(struct pdf_file *pdf, int font_id, int32_t x, int32_t y, char *text) {
+void  mypdf_add_text(struct pdf_file *pdf, int32_t font_id, int32_t size, int32_t x, int32_t y, char *text) {
    char buffer[40];
    int i;
    int open_brackets = 0;
    page_add_data(pdf->last_page, " BT\n",4);
-   sprintf(buffer,"   /F%i 24 Tf\n", font_id);
+   sprintf(buffer,"   /F%i %i Tf\n", font_id, size);
    page_add_data(pdf->last_page, buffer, strlen(buffer));
    sprintf(buffer,"   %i %i Td\n",x,y);
    page_add_data(pdf->last_page, buffer, strlen(buffer));

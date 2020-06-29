@@ -35,19 +35,28 @@ int main(int argc, char *argv[]) {
    } 
    font_id = mypdf_add_font(pdf);
 
+   ////////////////////////////////////////////
    mypdf_page_begin(pdf);
    mypdf_page_get_size(pdf, &w, &h);
-
    marker(pdf, 0, 0, 1, 1);
    marker(pdf, w, 0,-1, 1);
    marker(pdf, w, h,-1,-1);
    marker(pdf, 0, h, 1,-1);
-
    if(font_id >= 0) {
-     mypdf_add_text(pdf, font_id, 200, 200, "Hello World");
+     mypdf_add_text(pdf, font_id, 12, 200, 200, "Hello World");
   }
-
    mypdf_page_end(pdf);
+   
+   ////////////////////////////////////////////
+   mypdf_page_begin(pdf);
+   mypdf_page_get_size(pdf, &w, &h);
+   marker(pdf, 0, 0, 1, 1);
+   marker(pdf, w, 0,-1, 1);
+   marker(pdf, w, h,-1,-1);
+   marker(pdf, 0, h, 1,-1);
+   mypdf_page_end(pdf);
+   ////////////////////////////////////////////
+
 
    mypdf_close(pdf);
    return 0;
