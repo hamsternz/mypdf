@@ -245,7 +245,7 @@ void  mypdf_add_text(struct pdf_file *pdf, int32_t font_id, int32_t size, int32_
      } else if(text[i] == '\\') {
         page_add_data(pdf->last_page, "\\\\",2);
      } else if(text[i] == '(') {
-        page_add_data(pdf->last_page, "(",1);
+        page_add_data(pdf->last_page, "\\(",2);
 	open_brackets++;
      } else {
         page_add_data(pdf->last_page, text+i,1);
